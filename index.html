@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title> App 3 </title>
+	<style>
+		* {font-size: 50px;}
+	</style>
+</head>
+<body>
+<center>
+	<h1> Motivational msg V3</h1>
+	<h1 id ="ans"/>
+	<script>
+		function show()
+		{
+		let ans = document.getElementById("ans");
+		let url = "https://api.quotable.io/random";
+
+		fetch(url)
+		.then(res => res.json())
+		.then(data => ans.innerHTML =data.content +"-->" + data.author)
+		.catch(err => ans.innerHTML = "issue"+ err);
+		}
+		show();
+		setInterval(show, 5000);
+	</script>
+</center>
+</body>
+</html>	
